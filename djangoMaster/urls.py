@@ -22,7 +22,7 @@ from home.views import * # home의 views에서 모든 함수를 가져온다.
 
 urlpatterns = [
   path('admin/', admin.site.urls),
-  path('', main), # views.py의 main함수를 의미한다.
+  path('', main, name="main"), # views.py의 main함수를 의미한다. 이름을 붙여준다.
   # path('go_hello', hello),
   path('home/', include('home.urls')), # home>urls.py에서 관리할거야
 ]

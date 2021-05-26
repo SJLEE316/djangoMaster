@@ -13,5 +13,6 @@ DJANGOMASTER
 │  ├─ templates
 │  │  └─ home
 │  │         hello.html
-│  ├─ views.py
+│  ├─ urls.py
+│  └─ views.py
 ```
