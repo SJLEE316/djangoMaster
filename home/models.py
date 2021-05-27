@@ -10,3 +10,8 @@ class Question(models.Model):
 # shell에서 데이터 조회할 때 subject로 볼 수 있게 한다. -> 가독성을 높여주지
   def __str__(self):
     return self.subject
+
+class Answer(models.Model):
+  question = models.ForeignKey(Question, on_delete=models.CASCADE) # Question 모델을 속성을 갖는다. 연결된 Question 데이터가 삭제되면 답변도 함께 삭제된다.
+  content = models.TextField()
+  create_date = models.DateTimeField(auto_now = True)

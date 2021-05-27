@@ -27,3 +27,5 @@ DJANGOMASTER
 - APP 생성 후 HTML 띄우기
 - APP의 URL 분리하기
 - 링크 연결하기
+- Modeling
+- ORM
