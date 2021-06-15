@@ -13,6 +13,7 @@ DJANGOMASTER
 │  ├─ templates
 │  │  └─ home
 │  │         hello.html
+│  │         question_list.html
 │  ├─ urls.py
 │  └─ views.py
 ```
@@ -30,3 +31,4 @@ DJANGOMASTER
 - Modeling
 - ORM
 - Admin
+- Admin에서 등록한 데이터 HTML에서 Read하기
