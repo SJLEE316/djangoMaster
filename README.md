@@ -14,6 +14,7 @@ DJANGOMASTER
 │  │  └─ home
 │  │         hello.html
 │  │         question_list.html
+│  │         question_detail.html
 │  ├─ urls.py
 │  └─ views.py
 ```
@@ -32,3 +33,4 @@ DJANGOMASTER
 - ORM
 - Admin
 - Admin에서 등록한 데이터 HTML에서 Read하기
+- Admin에서 등록한 데이터의 상세보기 페이지 만들고 데이터 Read하기
