@@ -29,3 +29,4 @@ DJANGOMASTER
 - 링크 연결하기
 - Modeling
 - ORM
+- Admin
