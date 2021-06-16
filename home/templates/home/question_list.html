@@ -6,9 +6,7 @@
   <li>
     <!-- <a href="/home/{{ question.id }}">{{ question.subject }}</a> -->
     <!-- 아래처럼 URL 똑똑하게 사용하기 -->
-    <a href="{% url 'home:question_detail' question.id %}"
-      >{{ question.subject }}</a
-    >
+    <a href="{% url 'home:question_detail' question.id %}">{{ question.subject }}</a>
   </li>
   {% endfor %}
 </ul>

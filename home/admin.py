@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Question # Question 모델 import 해준다.
+from .models import Question, Answer # Question 모델 import 해준다.
 
 # Register your models here.
 
@@ -23,3 +23,11 @@ class QuestionAdmin(admin.ModelAdmin) :
 #   ]
 
 # admin.site.register(Question, QuestionAdmin) # class 밑에 입력해야한다.
+
+@admin.register(Answer)
+
+class AnswerAdmin(admin.ModelAdmin) :
+  list_display = ( # 목록에서 보여줄 column
+    'content',
+    'create_date',
+  )
