@@ -8,6 +8,11 @@ DJANGOMASTER
 │  ├─ templates
 │  │    main.html
 │  │    base.html
+│  ├─ static
+│  │  ├─ css
+│  │  │      style.css
+│  │  └─ images
+│  │         django.PNG
 │  ├─ urls.py
 │  └─ views.py
 ├─ home
