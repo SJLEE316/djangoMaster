@@ -42,3 +42,4 @@ DJANGOMASTER
 - Admin에서 등록한 데이터의 상세보기 페이지 만들고 데이터 Read하기
 - 각 Question에 답변(Answer) Create하고 Read하기
 - base.html 생성하고 상속하기
+- Static을 사용하여 style, image 적용하기

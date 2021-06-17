@@ -16,9 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include # include 삽입
 # from . import views # 모든 경로에서 views를 가져온다.
-# from .views import main # views에서 main함수를 가져온다.
-from .views import * # 디렉토리의 views에서 모든 함수를 가져온다.
-# from home.views import * # home의 views에서 모든 함수를 가져온다. url쓰면 필요 없어!
+# from .views import main # 루트 디렉토리의 views에서 main함수를 가져온다.
+from .views import * # 루트 디렉토리의 views에서 모든 함수를 가져온다.
+# from home.views import * # home의 views에서 모든 함수를 가져온다. include쓰면 필요 없어!
 
 urlpatterns = [
   path('admin/', admin.site.urls),
