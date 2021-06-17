@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+
 <!-- context 변수인 a_question을 사용한다. -->
 <h1>{{ a_question.subject }}</h1>
 <div>{{ a_question.content }}</div>
@@ -16,3 +19,5 @@
   <textarea name="content" id="content" cols="30" rows="10"></textarea>
   <input type="submit" value="답변 등록">
 </form>
+
+{% endblock %}

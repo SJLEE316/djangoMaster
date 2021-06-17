@@ -7,6 +7,7 @@ DJANGOMASTER
 ├─ djangoMaster
 │  ├─ templates
 │  │    main.html
+│  │    base.html
 │  ├─ urls.py
 │  └─ views.py
 ├─ home
@@ -35,3 +36,4 @@ DJANGOMASTER
 - Admin에서 등록한 데이터 HTML에서 Read하기
 - Admin에서 등록한 데이터의 상세보기 페이지 만들고 데이터 Read하기
 - 각 Question에 답변(Answer) Create하고 Read하기
+- base.html 생성하고 상속하기
