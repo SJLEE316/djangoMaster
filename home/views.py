@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect # render가 import 되어있다. (views.py기본 세팅)
 from .models import * # Question # 모델 import 하기
 # from django.utils import timezone # 이 프로젝트에서는 create_date를 자동으로 설정해두었다.
-from .forms import QuestionForm # QuestionForm 클래스 import 하기
+from .forms import QuestionForm, AnswerForm # QuestionForm 클래스 import 하기
 
 def hello(request):
   return render(request, 'home/hello.html')
@@ -31,8 +31,22 @@ def question_create(request):
   return render(request, 'home/question_form.html', context)
 
 def answer_create(request, question_id):
-  a_question = get_object_or_404(Question, pk=question_id) # 어떤 question 글에 달린 answer?
-  a_content = request.POST.get('content') # 뒤에 content는 html>name이랑 같다
+  question = get_object_or_404(Question, pk=question_id)
+  if request.method == "POST":
+    a_form = AnswerForm(request.POST)
+    if a_form.is_valid():
+      answer = a_form.save(commit=False)
+      answer.question = question
+      answer.save()
+      return redirect('home:question_detail', question_id=question.id) # 두 번째 인수인 question_id = question.id
+  else:
+    a_form = AnswerForm()
+  context = {'a_question': question, 'form': a_form} # HTML에 표시되는 이름은 통일한다. 예를들어 question_detail 함수에서 a_question으로 하였으므로, 여기도 a_question에 저장한다.
+  return render(request, 'home/question_detail.html', context)  
+  
+  # forms.py 사용하지 않은 코드
+  # a_question = get_object_or_404(Question, pk=question_id) # 어떤 question 글에 달린 answer?
+  # a_content = request.POST.get('content') # 뒤에 content는 html>name이랑 같다
   # Answer.objects.create(question = a_question, content = a_content), # models.py = views.py, Answer 모델에 직접 저장해도 된다.
-  a_question.answer_set.create(content = a_content) # models.py = views.py, answer을 question 모델에 저장하였다.
-  return redirect('home:question_detail', question_id=a_question.id)
+  # a_question.answer_set.create(content = a_content) # models.py = views.py, answer을 question 모델에 저장하였다.
+  # return redirect('home:question_detail', question_id=a_question.id)

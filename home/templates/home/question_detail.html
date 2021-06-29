@@ -16,6 +16,19 @@
 
 <form action="{% url 'home:answer_create' a_question.id %}" method="POST">
   {% csrf_token %}
+
+  <!-- forms.py 사용 -->
+  {% if form.errors %}
+  <div class="alert alert-danger" role="alert">
+    {% for field in form %}
+    {% if field.errors %}
+    <strong>{{ field.label }}</strong>
+    {{ field.errors }}
+    {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
+
   <textarea name="content" id="content" cols="30" rows="10"></textarea>
   <input type="submit" value="답변 등록">
 </form>

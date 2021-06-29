@@ -46,4 +46,6 @@ DJANGOMASTER
 - CREATE, READ : 각 Question에 답변(Answer) Create하고 Read하기
 - base.html 생성하고 상속하기
 - Static을 사용하여 style, image 적용하기
-- CREATE : with ModelForm
+- CREATE : Question with ModelForm
+- CREATE : Answer with ModelForm
+- forms.py에서 빈칸 있을 경우 오류 발생하기
