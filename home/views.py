@@ -27,7 +27,7 @@ def question_create(request):
       return redirect('home:question_list')
   else: # request.method == 'GET'인 경우
     a_form = QuestionForm() # QuestionForm 클래스로 생성한 객체 a_form을 사용할 것이다.
-  context = {'form' : a_form }
+  context = {'form' : a_form } # html에서의 form과 같다.
   return render(request, 'home/question_form.html', context)
 
 def answer_create(request, question_id):

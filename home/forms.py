@@ -5,3 +5,7 @@ class QuestionForm(forms.ModelForm): # 모델 폼을 상속받은 QuestionForm �
   class Meta: # 내부 Meta 클래스
     model = Question
     fields = ['subject', 'content']
+    labels = {
+      'subject' : '제목',
+      'content' : '내용',
+    }
