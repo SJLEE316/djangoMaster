@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div>
-  <h5>질문 등록</h5>
+<div class="container my-3">
+  <h1 class="border-bottom py-2">질문 등록</h1>
   <form method="POST">
     {% csrf_token %}
 
@@ -32,7 +32,7 @@
     <!-- {{ form.as_p }} -->
     <!-- form이 views.py > question_create 함수에서 전달한 QuestionForm 객체이다. -->
     <!-- {{ form.as_p }} 이 코드는 모델 폼과 연결된 입력 항목 subject, content에 값을 입력할 수 있는 HTML 코드를 자동으로 만들어 준다. -->
-    <button>저장하기</button>
+    <button class="btn btn-primary">저장하기</button>
   </form>
 </div>
 

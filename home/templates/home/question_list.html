@@ -1,22 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>질문 리스트 보기</h1>
+<div class="container my-3">
+  <h1 class="border-bottom py-2">질문 리스트 보기</h1>
+  <table class="table">
+    <thead>
+      <tr class="thead-dark">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성일시</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if questions_list %}
+      {% for question in questions_list %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>
+          <a href="{% url 'home:question_detail' question.id %}">{{ question.subject }}</a>
+        </td>
+        <td>{{ question.create_date }}</td>
+      </tr>
+      {% endfor %}
+      {% else %}
+      <tr>
+        <td colspan="3">질문이 없습니다.</td>
+      </tr>
+      {% endif %}
+    </tbody>
+  </table>
+  <a href="{% url 'home:question_create' %}">질문 등록하기</a>
+</div>
 
-{% if questions_list %}
-<ul>
-  {% for question in questions_list %}
-  <li>
-    <!-- <a href="/home/{{ question.id }}">{{ question.subject }}</a> -->
-    <!-- 아래처럼 URL 똑똑하게 사용하기 -->
-    <a href="{% url 'home:question_detail' question.id %}">{{ question.subject }}</a>
-  </li>
-  {% endfor %}
-</ul>
-{% else %}
-<p>질문이 없습니다.</p>
-{% endif %}
-
-<a href="{% url 'home:question_create' %}">질문 등록하기</a>
 
 {% endblock %}

@@ -49,3 +49,4 @@ DJANGOMASTER
 - CREATE : Question with ModelForm
 - CREATE : Answer with ModelForm
 - forms.py에서 빈칸 있을 경우 오류 발생하기
+- 부트스트랩 이용해서 화면 꾸미기

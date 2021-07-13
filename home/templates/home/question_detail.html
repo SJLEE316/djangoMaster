@@ -1,36 +1,56 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<!-- context 변수인 a_question을 사용한다. -->
-<h1>{{ a_question.subject }}</h1>
-<div>{{ a_question.content }}</div>
-
-<h5>{{ a_question.answer_set.count }}개의 답변이 있습니다.</h5>
-<div>
-  <ul>
+<div class="container my-3">
+  <h1 class="border-bottom py-2">{{ a_question.subject }}</h1>
+  <div class="card my-3">
+    <div class="card-body">
+      <div class="card-text" style="white-space: pre-line">
+        {{ a_question.content }}
+      </div>
+      <div class="d-flex justify-content-end">
+        <div class=" badge-light py-2">
+          {{ a_question.create_date }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-bottom my-3 py-2">
+    {{ a_question.answer_set.count }}개의 답변이 있습니다.
     {% for answer in a_question.answer_set.all %}
-    <li>{{ answer.content }}</li>
+    <div class="card my-3">
+      <div class="card-body">
+        <div class="card-text" style="white-space: pre-line;">{{ answer.content }}</div>
+        <div class="d-flex justify-content-end">
+          <div class="badge-light p-2">
+            {{ answer.create_date }}
+          </div>
+        </div>
+      </div>
+    </div>
     {% endfor %}
-  </ul>
+    <form action="{% url 'home:answer_create' a_question.id %}" method="post" class="my-3">
+      {% csrf_token %}
+      <div class="form-group">
+        <textarea name="content" id="content" class="form-control" rows="10"></textarea>
+      </div>
+      <input type="submit" value="답변등록" class="btn btn-primary">
+      <!-- {{ form.as_p }}대신 forms.py 사용 -->
+      <!-- 오류표시 Start -->
+      {% if form.errors %}
+      <div class="alert alert-danger" role="alert">
+        {% for field in form %}
+        {% if field.errors %}
+        <strong>{{ field.label }}</strong>
+        {{ field.errors }}
+        {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+      <!-- 오류표시 End -->
+    </form>
+  </div>
 </div>
 
-<form action="{% url 'home:answer_create' a_question.id %}" method="POST">
-  {% csrf_token %}
-
-  <!-- forms.py 사용 -->
-  {% if form.errors %}
-  <div class="alert alert-danger" role="alert">
-    {% for field in form %}
-    {% if field.errors %}
-    <strong>{{ field.label }}</strong>
-    {{ field.errors }}
-    {% endif %}
-    {% endfor %}
-  </div>
-  {% endif %}
-
-  <textarea name="content" id="content" cols="30" rows="10"></textarea>
-  <input type="submit" value="답변 등록">
-</form>
 
 {% endblock %}
