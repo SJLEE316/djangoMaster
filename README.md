@@ -6,8 +6,10 @@
 DJANGOMASTER
 ├─ djangoMaster
 │  ├─ templates
-│  │    main.html
-│  │    base.html
+│  │  └─ shared
+│  │         _navbar.html_
+│  │  └─ main.html
+│  │  └─ base.html
 │  ├─ static
 │  │  ├─ css
 │  │  │      style.css
@@ -52,3 +54,4 @@ DJANGOMASTER
 - forms.py에서 빈칸 있을 경우 오류 발생하기
 - 부트스트랩 이용해서 화면 꾸미기
 - CREATE : Not Using ModelForm
+- Navbar를 include 해서 사용하기
