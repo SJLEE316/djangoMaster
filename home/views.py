@@ -18,17 +18,28 @@ def question_detail(request, question_id):
   context = { 'a_question' : question } # 위의 question를 context 변수인 a_question에 저장한다.
   return render(request, 'home/question_detail.html', context)
 
+# 모델 폼 이용하지 않을 경우 필요한 함수
+def question_new(request):
+  return render(request, 'home/question_new.html')
+
 def question_create(request):
-  if request.method == 'POST':
-    a_form = QuestionForm(request.POST)
-    if a_form.is_valid():
-      question = a_form.save(commit=False) # 폼에 없는 필드인 create_date부분을 자동입력으로 모델을 설정하였기 때문에 a_form.save()라고 작성하여도 오류가 발생하지는 않는다.
-      question.save()
-      return redirect('home:question_list')
-  else: # request.method == 'GET'인 경우
-    a_form = QuestionForm() # QuestionForm 클래스로 생성한 객체 a_form을 사용할 것이다.
-  context = {'form' : a_form } # html에서의 form과 같다.
-  return render(request, 'home/question_form.html', context)
+  if request.method == "POST":
+    subject=request.POST.get('subject') # HTML의 name과 같아야 한다.
+    content=request.POST.get('content')
+    Question.objects.create(subject=subject, content=content)
+  return redirect('home:question_list')
+
+  # 모델 폼 이용한 코드
+  # if request.method == 'POST':
+  #   a_form = QuestionForm(request.POST)
+  #   if a_form.is_valid():
+  #     question = a_form.save(commit=False) # 폼에 없는 필드인 create_date부분을 자동입력으로 모델을 설정하였기 때문에 a_form.save()라고 작성하여도 오류가 발생하지는 않는다.
+  #     question.save()
+  #     return redirect('home:question_list')
+  # else: # request.method == 'GET'인 경우
+  #   a_form = QuestionForm() # QuestionForm 클래스로 생성한 객체 a_form을 사용할 것이다.
+  # context = {'form' : a_form } # html에서의 form과 같다.
+  # return render(request, 'home/question_form.html', context)
 
 def answer_create(request, question_id):
   question = get_object_or_404(Question, pk=question_id)
