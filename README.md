@@ -25,6 +25,9 @@ DJANGOMASTER
 │  │         question_new.html
 │  │         question_detail.html
 │  │         question_form.html
+│  ├─ templatetags
+│  │  └─ __init__.py
+│  │  └─ home_filter.py
 │  ├─ urls.py
 │  ├─ forms.py
 │  ├─ models.py
@@ -55,3 +58,4 @@ DJANGOMASTER
 - 부트스트랩 이용해서 화면 꾸미기
 - CREATE : Not Using ModelForm
 - Navbar를 include 해서 사용하기
+- Paginator : 페이징 기능 추가하기
