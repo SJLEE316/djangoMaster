@@ -59,3 +59,4 @@ DJANGOMASTER
 - CREATE : Not Using ModelForm
 - Navbar를 include 해서 사용하기
 - Paginator : 페이징 기능 추가하기
+- 질문에 달린 답변 개수 표시하기
