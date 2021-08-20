@@ -25,4 +25,5 @@ urlpatterns = [
   path('', main, name="main"), # views.py의 main함수를 의미한다. 이름을 붙여준다.
   # path('go_hello', hello),
   path('home/', include('home.urls')), # home>urls.py에서 관리할거야
+  path('users/', include('users.urls')), # users>urls.py에서 관리할거야
 ]

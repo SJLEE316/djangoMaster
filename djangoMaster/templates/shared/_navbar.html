@@ -2,3 +2,10 @@
 <a href="{% url 'main' %}">메인으로 가기</a>
 <span>||</span>
 <a href="{% url 'home:question_list' %}">질문 목록으로 가기</a>
+<span>||</span>
+{% if user.is_authenticated %}
+<a href="{% url 'users:logout' %}">{{ user.username }}님 로그아웃</a>
+<span>||</span>
+{% else %}
+<a href="{% url 'users:login' %}">로그인</a>
+{% endif %}

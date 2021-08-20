@@ -32,6 +32,14 @@ DJANGOMASTER
 │  ├─ forms.py
 │  ├─ models.py
 │  └─ views.py
+├─ users
+│  ├─ templates
+│  │  └─ users
+│  │         form_error.html
+│  │         login.html
+│  ├─ urls.py
+│  ├─ models.py
+
 ```
 
 ## note
@@ -60,3 +68,4 @@ DJANGOMASTER
 - Navbar를 include 해서 사용하기
 - Paginator : 페이징 기능 추가하기
 - 질문에 달린 답변 개수 표시하기
+- 로그인, 로그아웃 기능 구현하기
